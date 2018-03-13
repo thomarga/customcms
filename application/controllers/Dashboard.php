@@ -15,16 +15,10 @@ class Dashboard extends CI_Controller {
 	insert = input post
 	*/
 
-	public function allpost() //Daftar
+	public function Index()
 	{
-		$data['title']="Daftar Post"; //Title bar dan Judul
-		$data['file']="allpost"; //file didalam views/contents
-		$this->load->view('table_template',$data);
+		echo "dashboard";
 	}
-	public function addpost()
-	{
-		$data['title']="Input Post";
-		$data['file']="addpost";
-		$this->load->view('form_template',$data);
-	}
+
+	
 }
