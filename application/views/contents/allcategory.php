@@ -1,4 +1,5 @@
 <section class="content">
+  <span id="pesan-flash"><?php echo $this->session->flashdata('sukses'); ?></span>
   <div class="row">
     <div class="col-md-4">
       <div class="box">
@@ -9,7 +10,7 @@
         <div class="box-body chat" id="chat-box">
           <!-- chat item -->
           <div class="item">
-            <form role="form" action="<?php echo base_url(); ?>cms-admin/category/savecategory" method="post">
+            <form role="form" action="<?php echo base_url(); ?>cms-admin/category/save" method="post">
               <div class="form-group">
                 <label for="namalengkap">Nama</label>
                 <input type="text" class="form-control" value="<?php echo $category_name; ?>" id="" name="category_name"  required>
@@ -38,7 +39,7 @@
                 <thead>
                 <tr>
                   <th>Nama</th>
-                  <th width="25%">Aksi</th>
+                  <th width="18%">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,7 +47,8 @@
                     <?php foreach ($categories as $category) { ?>
                     <td><?php echo $category->category_name; ?></td>
                     <td>
-                      <a class="btn btn-info btn-xs" href="<?php echo base_url(); ?>cms-admin/category/editcategory/<?php echo $category->idcategory; ?>"><i class="fa fa-edit"></i></a>
+                      <a class="btn btn-info btn-xs" href="<?php echo base_url(); ?>cms-admin/category/edit/<?php echo $category->idcategory; ?>"><i class="fa fa-edit"></i></a>
+                      <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-xs" href="<?php echo base_url(); ?>cms-admin/category/delete/<?php echo $category->idcategory; ?>"><i class="fa fa-trash"></i></a>
                     </td>
                     </tr>
                 <?php } ?>
@@ -54,7 +56,7 @@
                 <tfoot>
                 <tr>
                   <th>Nama</th>
-                  <th width="25%">Aksi</th>
+                  <th width="18%">Aksi</th>
                 </tr>
                 </tfoot>
               </table>
@@ -70,3 +72,9 @@
   <!-- ./row -->
 </section>
 
+
+<script type="text/javascript">
+  $(function(){
+    $('#pesan-flash').delay(3000).fadeOut();
+  });
+</script>

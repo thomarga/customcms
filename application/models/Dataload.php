@@ -53,5 +53,11 @@ class Dataload extends CI_Model{
 		$this->db->where('idcategory', $id);
 		return $this->db->update($table, $data);
 	}
+
+	public function deletecategory($table,$id)
+	{
+		$this->db->where('idcategory', $id);
+		return $this->db->delete($table);
+	}
 }
 ?>

@@ -18,7 +18,7 @@ class Category extends CI_Controller {
 		$this->load->view('table_template',$data);
 	}
 
-	public function editcategory($id = 0)
+	public function edit($id = 0)
 	{
 		$tampung = $this->dataload->getcategorybyid('categories',$id);
 		$data = array(
@@ -32,7 +32,7 @@ class Category extends CI_Controller {
 		$this->load->view('table_template',$data);
 	}
 
-	public function savecategory()
+	public function save()
 	{
 		if ($_POST) {
 			$status = $this->input->post('status');
@@ -40,6 +40,7 @@ class Category extends CI_Controller {
 				$data['category_name'] = $this->input->post('category_name');
 				$result = $this->dataload->savecategory('categories',$data);
 				if ($result == 1) {
+					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Tambah Category</strong></div>");
 					header('location:'.base_url().'cms-admin/category');
 				}
 			}else{
@@ -47,9 +48,19 @@ class Category extends CI_Controller {
 				$data = array('category_name' => $this->input->post('category_name'));
 				$result = $this->dataload->updatecategory('categories', $data, $id);
 				if ($result) {
+					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Update Category</strong></div>");
 					header('location:'.base_url().'cms-admin/category');
 				}
 			}
+		}
+	}
+
+	public function delete($id = 0)
+	{
+		$result = $this->dataload->deletecategory('categories',$id);
+		if ($result) {
+			$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Category</strong></div>");
+			header('location:'.base_url().'cms-admin/category');
 		}
 	}
 
