@@ -29,5 +29,29 @@ class Dataload extends CI_Model{
 		$tulisanfooter = "Copyright &copy; ".$tahun." <a href=''#'>PT. Jogja Media Teknologi</a>. All rights reserved.";
 		return($tulisanfooter);
 	}
+
+	// category model
+	public function getallcategories($table)
+	{
+		$query = $this->db->get($table);
+		return $query->result();
+	}
+
+	public function getcategorybyid($table,$id)
+	{
+		$data = $this->db->get_where($table, array('idcategory' => $id));
+		return $data->result_array();
+	}
+
+	public function savecategory($table,$data)
+	{
+		return $this->db->insert($table, $data);
+	}
+
+	public function updatecategory($table,$data,$id)
+	{
+		$this->db->where('idcategory', $id);
+		return $this->db->update($table, $data);
+	}
 }
 ?>

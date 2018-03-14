@@ -23,8 +23,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('posts-all') ?>"><i class="fa fa-circle-o"></i>All Post</a></li>
-          <li><a href="<?php echo base_url('post-new') ?>"><i class="fa fa-circle-o"></i>Add Post</a></li>
+          <li><a href="<?php echo base_url('cms-admin/posts-all') ?>"><i class="fa fa-circle-o"></i>All Post</a></li>
+          <li><a href="<?php echo base_url('cms-admin/post-new') ?>"><i class="fa fa-circle-o"></i>Add Post</a></li>
+          <li><a href="<?php echo base_url('cms-admin/category') ?>"><i class="fa fa-circle-o"></i>Category</a></li>
         </ul>
       </li>
       <li class="treeview active">

@@ -5,8 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'dashboard';
 
 // admin posts routes
-$route['posts-all'] = 'post';
-$route['post-new'] = 'post/addpost';
+$route['cms-admin/posts-all'] = 'cms-admin/post';
+$route['cms-admin/post-new'] = 'cms-admin/post/addpost';
+
+// admin category routes
+$route['cms-admin/category'] = 'cms-admin/category';
+$route['cms-admin/category/savecategory'] = 'cms-admin/category/savecategory';
 
 
 $route['404_override'] = '';

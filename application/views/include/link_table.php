@@ -46,7 +46,7 @@
                 {
                     "decimal":        "",
                     "emptyTable":     "Data masih kosong",
-                    "info":           "Menampilkan _START_ sampai _END_ pada _TOTAL_ data",
+                    "info":           "",
                     "infoEmpty":      "Menampilkan 0 sampai 0 pada 0 data",
                     "infoFiltered":   "(filtered from _MAX_ total entries)",
                     "infoPostFix":    "",
