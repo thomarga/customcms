@@ -38,6 +38,7 @@
 <script src="<?php echo base_url() ?>assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
+
 <!-- page script -->
 <script>
   $(function () {
@@ -47,6 +48,7 @@
                     "decimal":        "",
                     "emptyTable":     "Data masih kosong",
                     "info":           "",
+                    // "info":           "Menampilkan _START_ sampai _END_ pada _TOTAL_ data",
                     "infoEmpty":      "Menampilkan 0 sampai 0 pada 0 data",
                     "infoFiltered":   "(filtered from _MAX_ total entries)",
                     "infoPostFix":    "",
@@ -76,5 +78,11 @@
       'info'        : true,
       'autoWidth'   : false
     })
+    
+
+  $(function(){
+    $('#pesan-flash').delay(3000).fadeOut();
+  });
+
   })
 </script>

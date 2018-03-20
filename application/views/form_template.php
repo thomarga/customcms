@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo $title ?></title>
+    <title>CMS</title>
     <?php $this->load->view('include/head'); ?> <!-- head besisi meta, favicon, SEO keyword, dll -->
     <?php $this->load->view('include/link_form'); ?> <!-- link CSS dan JS untuk Form Template -->
   </head>

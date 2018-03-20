@@ -9,7 +9,7 @@ class Category extends CI_Controller {
 
 	public function index()
 	{
-		$data['title']="Daftar Category";
+		$data['title']="Daftar Kategori";
 		$data['categories'] = $this->dataload->getallcategories('categories');
 		$data['file']="allcategory";
 		$data['status'] = 'baru';
@@ -22,7 +22,7 @@ class Category extends CI_Controller {
 	{
 		$tampung = $this->dataload->getcategorybyid('categories',$id);
 		$data = array(
-			'title' => "Daftar Category",
+			'title' => "Daftar Kategori",
 			'status' => 'lama',
 			'file' => 'allcategory',
 			'category_name' => $tampung[0]['category_name'],
@@ -40,7 +40,7 @@ class Category extends CI_Controller {
 				$data['category_name'] = $this->input->post('category_name');
 				$result = $this->dataload->savecategory('categories',$data);
 				if ($result == 1) {
-					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Tambah Category</strong></div>");
+					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Tambah Kategori</strong></div>");
 					header('location:'.base_url().'cms-admin/category');
 				}
 			}else{
@@ -48,7 +48,7 @@ class Category extends CI_Controller {
 				$data = array('category_name' => $this->input->post('category_name'));
 				$result = $this->dataload->updatecategory('categories', $data, $id);
 				if ($result) {
-					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Update Category</strong></div>");
+					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Update Kategori</strong></div>");
 					header('location:'.base_url().'cms-admin/category');
 				}
 			}
@@ -59,7 +59,7 @@ class Category extends CI_Controller {
 	{
 		$result = $this->dataload->deletecategory('categories',$id);
 		if ($result) {
-			$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Category</strong></div>");
+			$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Kategori</strong></div>");
 			header('location:'.base_url().'cms-admin/category');
 		}
 	}

@@ -36,6 +36,19 @@ folder instead of downloading all of them to reduce the load. -->
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<link href="<?php echo base_url() ?>assets/css/bootstrap-tagsinput.css" rel="stylesheet">
+<link href="<?php echo base_url() ?>assets/css/jquery.tagsinput.min.css" rel="stylesheet">
+<style type="text/css">
+	body{
+		display: block;
+		img {
+		    width: 100%;
+		}
+	}
+</style>
+<script src="<?php echo base_url() ?>assets/js/bootstrap-tagsinput.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/jquery.form.js"></script>
+<script src="<?php echo base_url() ?>assets/js/typeahead.bundle.js"></script>
 <script>
 $(function () {
 // Replace the <textarea id="editor1"> with a CKEditor
@@ -56,7 +69,28 @@ $('.textarea').wysihtml5()
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' /* optional */
     });
-  });
+
+
+    	// tag
+
+	 	// var data = ["php", "java", "mysql", "python"];
+	    var tags = new Bloodhound({
+	      datumTokenizer: Bloodhound.tokenizers.whitespace,
+	      queryTokenizer: Bloodhound.tokenizers.whitespace,
+	      // local : data
+	      prefetch: {
+	     	url: '#',
+	  		}
+	    });
+	    tags.initialize();
+
+	    $("#tag").tagsinput({
+	      typeaheadjs: {
+	        name: "tag",
+	        source: tags.ttAdapter()
+	      }
+	    });
+});
 </script>
 <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/iCheck/square/blue.css">

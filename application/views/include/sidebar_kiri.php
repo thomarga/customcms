@@ -17,15 +17,15 @@
       </li>
       <li class="treeview active">
         <a href="#">
-          <i class="fa fa-edit"></i> <span>Posts</span>
+          <i class="fa fa-edit"></i> <span>Pos</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('cms-admin/posts-all') ?>"><i class="fa fa-circle-o"></i>All Post</a></li>
-          <li><a href="<?php echo base_url('cms-admin/post-new') ?>"><i class="fa fa-circle-o"></i>Add Post</a></li>
-          <li><a href="<?php echo base_url('cms-admin/category') ?>"><i class="fa fa-circle-o"></i>Category</a></li>
+          <li><a href="<?php echo base_url('cms-admin/posts-all') ?>"><i class="fa fa-circle-o"></i>Semua Pos</a></li>
+          <li><a href="<?php echo base_url('cms-admin/post-new') ?>"><i class="fa fa-circle-o"></i>Tambah Pos</a></li>
+          <li><a href="<?php echo base_url('cms-admin/category') ?>"><i class="fa fa-circle-o"></i>Kategori</a></li>
         </ul>
       </li>
       <li class="treeview active">

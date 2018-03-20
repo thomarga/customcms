@@ -5,7 +5,7 @@
       <div class="box">
         <div class="box-header">
           <i class="fa fa-plus"></i>
-          <h3 class="box-title">Form Category</h3>
+          <h3 class="box-title">Form Kategori</h3>
         </div>
         <div class="box-body chat" id="chat-box">
           <!-- chat item -->
@@ -39,7 +39,7 @@
                 <thead>
                 <tr>
                   <th>Nama</th>
-                  <th width="18%">Aksi</th>
+                  <th width="20%">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,8 +47,8 @@
                     <?php foreach ($categories as $category) { ?>
                     <td><?php echo $category->category_name; ?></td>
                     <td>
-                      <a class="btn btn-info btn-xs" href="<?php echo base_url(); ?>cms-admin/category/edit/<?php echo $category->idcategory; ?>"><i class="fa fa-edit"></i></a>
-                      <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-xs" href="<?php echo base_url(); ?>cms-admin/category/delete/<?php echo $category->idcategory; ?>"><i class="fa fa-trash"></i></a>
+                      <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>cms-admin/category/edit/<?php echo $category->idcategory; ?>">Edit</a> ||
+                      <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>cms-admin/category/delete/<?php echo $category->idcategory; ?>">Hapus</a>
                     </td>
                     </tr>
                 <?php } ?>
@@ -56,7 +56,7 @@
                 <tfoot>
                 <tr>
                   <th>Nama</th>
-                  <th width="18%">Aksi</th>
+                  <th width="20%">Aksi</th>
                 </tr>
                 </tfoot>
               </table>
@@ -73,8 +73,3 @@
 </section>
 
 
-<script type="text/javascript">
-  $(function(){
-    $('#pesan-flash').delay(3000).fadeOut();
-  });
-</script>
