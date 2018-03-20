@@ -11,10 +11,23 @@ class Category extends CI_Controller {
 	{
 		$data['title']="Daftar Kategori";
 		$data['categories'] = $this->dataload->getallcategories('categories');
-		$data['file']="allcategory";
+		$data['file']="categories/allcategory";
 		$data['status'] = 'baru';
 		$data['idcategory'] = '';
 		$data['category_name'] = '';
+		$this->load->view('table_template',$data);
+	}
+
+	public function view($id='')
+	{
+		$tampung = $this->dataload->getcategorybyid('categories',$id);
+		$data = array(
+			'title' => 'Kategori',
+			'category_name' => $tampung[0]['category_name'],
+			'posts' => $this->dataload->postscategories($id),
+			'counts' => $this->dataload->countposts($id),
+			'file' => 'categories/category'
+		);
 		$this->load->view('table_template',$data);
 	}
 
@@ -55,13 +68,14 @@ class Category extends CI_Controller {
 		}
 	}
 
-	public function delete($id = 0)
+	public function delete($id = '')
 	{
-		$result = $this->dataload->deletecategory('categories',$id);
-		if ($result) {
-			$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Kategori</strong></div>");
-			header('location:'.base_url().'cms-admin/category');
-		}
+		$this->dataload->deletecategory('categories_detail',$id);
+		$this->dataload->deletecategory('categories',$id);
+		
+		$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Kategori</strong></div>");
+		header('location:'.base_url().'cms-admin/category');
+		
 	}
 
 }

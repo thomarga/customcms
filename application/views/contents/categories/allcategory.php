@@ -45,7 +45,7 @@
                 <tbody>
                   <tr>
                     <?php foreach ($categories as $category) { ?>
-                    <td><?php echo $category->category_name; ?></td>
+                    <td><a href="<?php echo base_url('cms-admin/category/view/'.$category->idcategory)?>"><?php echo $category->category_name; ?></a></td>
                     <td>
                       <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>cms-admin/category/edit/<?php echo $category->idcategory; ?>">Edit</a> ||
                       <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>cms-admin/category/delete/<?php echo $category->idcategory; ?>">Hapus</a>

@@ -10,7 +10,7 @@ $route['cms-admin/posts-all'] = 'cms-admin/post';
 $route['cms-admin/post-new'] = 'cms-admin/post/add';
 
 // admin category routes
-// $route['cms-admin/category'] = 'cms-admin/category';
+// $route['cms-admin/category/(:any)'] = 'cms-admin/category/view';
 // $route['cms-admin/category/savecategory'] = 'cms-admin/category/savecategory';
 
 

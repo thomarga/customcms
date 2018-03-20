@@ -24,7 +24,7 @@
         <div class="well">
         	<dl class="dl-horizontal">
         		<label>Url:</label>
-        		<p><a href="<?php echo base_url('cms-admin/post/view/'.$post['idpost'])?>">http://customcms/post-conth</a></p>
+        		<p><a href="<?php echo base_url('cms-admin/post/'.$post['slug'])?>">http://customcms/<?php echo $post['slug']; ?></a></p>
         	</dl>
         	<dl class="dl-horizontal">
         		<label>Kategori:</label>
@@ -34,9 +34,9 @@
         			 	echo "Tak Berkategori";
         			 }else{
 
-	        			foreach ($categories as $category) {
-	        				echo $category['category_name'].", ";
-	        			} 
+	        			foreach ($categories as $category) { ?>
+	        				<a href="<?php echo base_url('cms-admin/category/view/'.$category['idcategory'])?>"><?php echo $category['category_name']; ?></a>,
+	        			<?php } 
         			 } ?>
         		</p>
         	</dl>
