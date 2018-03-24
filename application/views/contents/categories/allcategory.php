@@ -10,7 +10,7 @@
         <div class="box-body chat" id="chat-box">
           <!-- chat item -->
           <div class="item">
-            <form role="form" action="<?php echo base_url(); ?>cms-admin/category/save" method="post">
+            <form role="form" action="<?php echo base_url(); ?>category/save" method="post">
               <div class="form-group">
                 <label for="namalengkap">Nama</label>
                 <input type="text" class="form-control" value="<?php echo $category_name; ?>" id="" name="category_name"  required>
@@ -47,8 +47,8 @@
                     <?php foreach ($categories as $category) { ?>
                     <td><a href="<?php echo base_url('cms-admin/category/view/'.$category->idcategory)?>"><?php echo $category->category_name; ?></a></td>
                     <td>
-                      <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>cms-admin/category/edit/<?php echo $category->idcategory; ?>">Edit</a> ||
-                      <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>cms-admin/category/delete/<?php echo $category->idcategory; ?>">Hapus</a>
+                      <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>category/edit/<?php echo $category->idcategory; ?>">Edit</a> ||
+                      <a onclick="return confirm('Apakah anda yakin ?');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>category/delete/<?php echo $category->idcategory; ?>">Hapus</a>
                     </td>
                     </tr>
                 <?php } ?>

@@ -8,10 +8,18 @@ class Auth extends CI_Controller {
 
 	}
 
-	public function index()
+	public function index() //login
 	{	
-		$data['title']="Login User"; //Title bar dan Judul
-		$this->load->view('login_template',$data);
+		$data['title'] = "Login User"; //Title bar dan Judul
+		$data['file']="login";
+		$this->load->view('auth_template',$data);
+	}
+
+	public function register()
+	{	
+		$data['title'] = "Register User"; //Title bar dan Judul
+		$data['file']="register";
+		$this->load->view('auth_template',$data);
 	}
 	
 }

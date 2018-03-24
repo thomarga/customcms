@@ -38,7 +38,7 @@
                           
                         </td>
                       <td>
-                        <a href="<?php echo base_url('cms-admin/post/view/'.$post->idpost) ?>" class="btn btn-default btn-md" title="lihat"><i class="fa fa-eye"></i></a> || 
+                        <a href="<?php echo base_url('post/view/'.$post->idpost) ?>" class="btn btn-default btn-md" title="lihat"><i class="fa fa-eye"></i></a> || 
                         <a href="#" class="btn btn-default btn-md" title="edit"><i class="fa fa-edit"></i></a>
                       </td>
                     </tr>

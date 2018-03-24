@@ -5,12 +5,13 @@ class Category extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('posts');
 	}
 
 	public function index()
 	{
 		$data['title']="Daftar Kategori";
-		$data['categories'] = $this->dataload->getallcategories('categories');
+		$data['categories'] = $this->posts->getallcategories('categories');
 		$data['file']="categories/allcategory";
 		$data['status'] = 'baru';
 		$data['idcategory'] = '';
@@ -20,12 +21,12 @@ class Category extends CI_Controller {
 
 	public function view($id='')
 	{
-		$tampung = $this->dataload->getcategorybyid('categories',$id);
+		$tampung = $this->posts->getcategorybyid('categories',$id);
 		$data = array(
 			'title' => 'Kategori',
 			'category_name' => $tampung[0]['category_name'],
-			'posts' => $this->dataload->postscategories($id),
-			'counts' => $this->dataload->countposts($id),
+			'posts' => $this->posts->postscategories($id),
+			'counts' => $this->posts->countposts($id),
 			'file' => 'categories/category'
 		);
 		$this->load->view('table_template',$data);
@@ -33,14 +34,14 @@ class Category extends CI_Controller {
 
 	public function edit($id = 0)
 	{
-		$tampung = $this->dataload->getcategorybyid('categories',$id);
+		$tampung = $this->posts->getcategorybyid('categories',$id);
 		$data = array(
 			'title' => "Daftar Kategori",
 			'status' => 'lama',
-			'file' => 'allcategory',
+			'file' => 'categories/allcategory',
 			'category_name' => $tampung[0]['category_name'],
 			'idcategory' => $tampung[0]['idcategory'],
-			'categories' => $this->dataload->getallcategories('categories')
+			'categories' => $this->posts->getallcategories('categories')
 		);
 		$this->load->view('table_template',$data);
 	}
@@ -51,18 +52,18 @@ class Category extends CI_Controller {
 			$status = $this->input->post('status');
 			if ($status == 'baru') {
 				$data['category_name'] = $this->input->post('category_name');
-				$result = $this->dataload->savecategory('categories',$data);
+				$result = $this->posts->savecategory('categories',$data);
 				if ($result == 1) {
 					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Tambah Kategori</strong></div>");
-					header('location:'.base_url().'cms-admin/category');
+					header('location:'.base_url().'category');
 				}
 			}else{
 				$id = $this->input->post('idcategory');
 				$data = array('category_name' => $this->input->post('category_name'));
-				$result = $this->dataload->updatecategory('categories', $data, $id);
+				$result = $this->posts->updatecategory('categories', $data, $id);
 				if ($result) {
 					$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Update Kategori</strong></div>");
-					header('location:'.base_url().'cms-admin/category');
+					header('location:'.base_url().'category');
 				}
 			}
 		}
@@ -70,11 +71,11 @@ class Category extends CI_Controller {
 
 	public function delete($id = '')
 	{
-		$this->dataload->deletecategory('categories_detail',$id);
-		$this->dataload->deletecategory('categories',$id);
+		$this->posts->deletecategory('categories_detail',$id);
+		$this->posts->deletecategory('categories',$id);
 		
 		$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Berhasil Hapus Kategori</strong></div>");
-		header('location:'.base_url().'cms-admin/category');
+		header('location:'.base_url().'category');
 		
 	}
 

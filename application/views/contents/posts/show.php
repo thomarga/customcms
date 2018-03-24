@@ -24,7 +24,7 @@
         <div class="well">
         	<dl class="dl-horizontal">
         		<label>Url:</label>
-        		<p><a href="<?php echo base_url('cms-admin/post/'.$post['slug'])?>">http://customcms/<?php echo $post['slug']; ?></a></p>
+        		<p><a href="<?php echo base_url('post/'.$post['slug'])?>">http://customcms/<?php echo $post['slug']; ?></a></p>
         	</dl>
         	<dl class="dl-horizontal">
         		<label>Kategori:</label>
@@ -35,7 +35,7 @@
         			 }else{
 
 	        			foreach ($categories as $category) { ?>
-	        				<a href="<?php echo base_url('cms-admin/category/view/'.$category['idcategory'])?>"><?php echo $category['category_name']; ?></a>,
+	        				<a href="<?php echo base_url('category/view/'.$category['idcategory'])?>"><?php echo $category['category_name']; ?></a>,
 	        			<?php } 
         			 } ?>
         		</p>
@@ -57,11 +57,11 @@
           			<a href="#" class="btn btn-success btn-block">Edit</a>
           		</div>
           		<div class="col-sm-6">
-          			<a onclick="return confirm('Apakah Anda Yakin?')" href="<?php echo base_url('cms-admin/post/delete/'.$post['idpost'])?>" class="btn btn-danger btn-block">Hapus</a>
+          			<a onclick="return confirm('Apakah Anda Yakin?')" href="<?php echo base_url('post/delete/'.$post['idpost'])?>" class="btn btn-danger btn-block">Hapus</a>
           		</div>
           	</div>
           	<hr>
-         	<a href="<?php echo base_url('cms-admin/posts-all') ?>" class="btn btn-default btn-block"><< Lihat Semua Pos</a>
+         	<a href="<?php echo base_url('posts-all') ?>" class="btn btn-default btn-block"><< Lihat Semua Pos</a>
         </div>
         
       </div>

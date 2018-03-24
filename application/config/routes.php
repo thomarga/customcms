@@ -6,8 +6,8 @@ $route['default_controller'] = 'dashboard';
 
 // admin posts routes
 // $route['cms-admin/post/(:any)'] = 'cms-admin/post/viewpost/$1';
-$route['cms-admin/posts-all'] = 'cms-admin/post';
-$route['cms-admin/post-new'] = 'cms-admin/post/add';
+$route['posts-all'] = 'post';
+$route['post-new'] = 'post/add';
 
 // admin category routes
 // $route['cms-admin/category/(:any)'] = 'cms-admin/category/view';

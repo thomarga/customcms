@@ -1,5 +1,5 @@
 <section class="content">
-  <form method="POST" action="<?php echo base_url('cms-admin/post/save') ?>">
+  <form method="POST" action="<?php echo base_url('post/save') ?>">
     <div class="row">
       <div class="col-md-9">
         <div class="box box-default">

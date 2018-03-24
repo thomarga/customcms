@@ -23,9 +23,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('cms-admin/posts-all') ?>"><i class="fa fa-circle-o"></i>Semua Pos</a></li>
-          <li><a href="<?php echo base_url('cms-admin/post-new') ?>"><i class="fa fa-circle-o"></i>Tambah Pos</a></li>
-          <li><a href="<?php echo base_url('cms-admin/category') ?>"><i class="fa fa-circle-o"></i>Kategori</a></li>
+          <li><a href="<?php echo base_url('posts-all') ?>"><i class="fa fa-circle-o"></i>Semua Pos</a></li>
+          <li><a href="<?php echo base_url('post-new') ?>"><i class="fa fa-circle-o"></i>Tambah Pos</a></li>
+          <li><a href="<?php echo base_url('category') ?>"><i class="fa fa-circle-o"></i>Kategori</a></li>
         </ul>
       </li>
       <li class="treeview active">
@@ -36,8 +36,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i>All Media</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i>Add Media</a></li>
+          <li><a href="<?php echo base_url() ?>media/allmedia"><i class="fa fa-circle-o"></i>All Media</a></li>
+          <li><a href="<?php echo base_url() ?>media/addmedia"><i class="fa fa-circle-o"></i>Add Media</a></li>
         </ul>
       </li>
     </ul>

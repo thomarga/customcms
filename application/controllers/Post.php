@@ -5,21 +5,22 @@ class Post extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('posts');
 	}
 
 	public function index()
 	{
 		$data['title']="Semua Pos";
 		$data['file']="posts/allpost";
-		$data['posts'] = $this->dataload->getposts(); 
+		$data['posts'] = $this->posts->getposts(); 
 		$this->load->view('table_template',$data);
 	}
 
 	public function view($id = '')
 	{
-		$data['post'] = $this->dataload->getpostbyid('posts',$id);
-		$data['categories'] = $this->dataload->categories_post($id);
-		$data['tags'] = $this->dataload->tags_post($id);
+		$data['post'] = $this->posts->getpostbyid('posts',$id);
+		$data['categories'] = $this->posts->categories_post($id);
+		$data['tags'] = $this->posts->tags_post($id);
 		// print_r($data); die();
 		$data['file']="posts/show";
 		$this->load->view('form_template',$data);
@@ -29,7 +30,7 @@ class Post extends CI_Controller {
 	{
 		$data['title']="Tambah Pos";
 		$data['file']="posts/addpost";
-		$data['categories'] = $this->dataload->getallcategories('categories');
+		$data['categories'] = $this->posts->getallcategories('categories');
 		$this->load->view('form_template',$data);
 	}
 
@@ -58,7 +59,7 @@ class Post extends CI_Controller {
 					'post_status' => '1',
 					'iduser' => 3
 				);
-				$this->dataload->savepost('posts',$data);
+				$this->posts->savepost('posts',$data);
 
 				foreach ($tags as $tag) {
 					$idtag = uniqid();
@@ -66,13 +67,13 @@ class Post extends CI_Controller {
 						'idtag' => $idtag,
 						'tag' => $tag
 					);
-					$this->dataload->savepost('tags',$data);
+					$this->posts->savepost('tags',$data);
 					
 					$data = array(
 						'idpost' => $idpost,
 						'idtag' => $idtag
 					);
-					$this->dataload->savepost('posts_tags', $data);
+					$this->posts->savepost('posts_tags', $data);
 
 				}
 
@@ -82,12 +83,12 @@ class Post extends CI_Controller {
 						'idpost' => $idpost,
 						'idcategory' => $category
 					);
-					$this->dataload->savepost('categories_detail', $data);
+					$this->posts->savepost('categories_detail', $data);
 
 				}
 				
 				$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Pos Telah Terbit</strong></div>");
-				redirect('cms-admin/posts-all');
+				redirect('posts-all');
 				
 				
 				break;
@@ -103,7 +104,7 @@ class Post extends CI_Controller {
 					'post_status' => '2',
 					'iduser' => 3
 				);
-				$this->dataload->savepost('posts',$data);
+				$this->posts->savepost('posts',$data);
 
 				foreach ($tags as $tag) {
 					$idtag = uniqid();
@@ -111,13 +112,13 @@ class Post extends CI_Controller {
 						'idtag' => $idtag,
 						'tag' => $tag
 					);
-					$this->dataload->savepost('tags',$data);
+					$this->posts->savepost('tags',$data);
 					
 					$data = array(
 						'idpost' => $idpost,
 						'idtag' => $idtag
 					);
-					$this->dataload->savepost('posts_tags', $data);
+					$this->posts->savepost('posts_tags', $data);
 
 				}
 
@@ -127,34 +128,34 @@ class Post extends CI_Controller {
 						'idpost' => $idpost,
 						'idcategory' => $category
 					);
-					$this->dataload->savepost('categories_detail', $data);
+					$this->posts->savepost('categories_detail', $data);
 
 				}
 
 				$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Post Disimpan Di Konsep</strong></div>");
-				redirect('cms-admin/posts-all');
+				redirect('posts-all');
 			break;
 			default:
 		}
 
 	}
 
-	public function gettags()
-	{
-		$this->db->select('tag');
-		$query = $this->db->get('tags')->result_array();
+	// public function gettags()
+	// {
+	// 	$this->db->select('tag');
+	// 	$query = $this->db->get('tags')->result_array();
 		
-		print_r($query);
-	}
+	// 	print_r($query);
+	// }
 
 	public function delete($id= '')
 	{
-		$this->dataload->deletepost('posts_tags',$id);
-		$this->dataload->deletepost('categories_detail',$id);
-		$this->dataload->deletepost('posts',$id);
+		$this->posts->deletepost('posts_tags',$id);
+		$this->posts->deletepost('categories_detail',$id);
+		$this->posts->deletepost('posts',$id);
 
 		$this->session->set_flashdata("sukses", "<div class='alert alert-success'><strong>Post Berhasil Dihapus</strong></div>");
-		redirect('cms-admin/posts-all');
+		redirect('posts-all');
 	}
 
 }
