@@ -41,9 +41,11 @@ folder instead of downloading all of them to reduce the load. -->
 <style type="text/css">
 	body{
 		display: block;
-		img {
-		    width: 100%;
-		}
+	}
+	.modal-lg
+	{
+	    width: 90%;
+	    height: 90%; /* control height here */
 	}
 </style>
 <script src="<?php echo base_url() ?>assets/js/bootstrap-tagsinput.min.js"></script>

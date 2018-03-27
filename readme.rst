@@ -4,12 +4,12 @@ CustomCMS
 
 CMS yang dikembangkan menggunakan framework Codeigniter 3.
 
-*******************
-Konfigurasi Database
-*******************
+
+### Signing
+
 
 Buka file application/config/database.php
 Ubah password database sesuai konfigurasi database anda.
 
-`'password' => 'Simpleplan88'` menjadi `'password' => ''`
+` 'password' => 'Simpleplan88' ` menjadi ` 'password' => '' `
 

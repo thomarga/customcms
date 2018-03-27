@@ -52,6 +52,27 @@ class Posts extends CI_Model {
 		return $this->db->delete($table);
 	}
 
+	public function postscategories($id)
+	{
+		$this->db->select('posts.*, users.*');
+		$this->db->from('posts');
+		$this->db->join('categories_detail', 'categories_detail.idpost = posts.idpost', 'inner');
+		$this->db->join('users', 'users.iduser = posts.iduser', 'inner');
+		$this->db->join('categories', 'categories.idcategory = categories_detail.idcategory', 'inner');
+		$this->db->where('categories.idcategory', $id);
+		return $this->db->get()->result();
+	}
+
+	public function countposts($id)
+	{
+		$this->db->select('*');
+		$this->db->from('posts');
+		$this->db->join('categories_detail', 'categories_detail.idpost = posts.idpost', 'inner');
+		$this->db->join('categories', 'categories.idcategory = categories_detail.idcategory', 'inner');
+		$this->db->where('categories.idcategory', $id);
+		return $this->db->get()->num_rows();
+	}
+
 
 	// category model
 	public function getallcategories($table)
@@ -90,24 +111,5 @@ class Posts extends CI_Model {
 
 	}
 
-	public function postscategories($id)
-	{
-		$this->db->select('posts.*, users.*');
-		$this->db->from('posts');
-		$this->db->join('categories_detail', 'categories_detail.idpost = posts.idpost', 'inner');
-		$this->db->join('users', 'users.iduser = posts.iduser', 'inner');
-		$this->db->join('categories', 'categories.idcategory = categories_detail.idcategory', 'inner');
-		$this->db->where('categories.idcategory', $id);
-		return $this->db->get()->result();
-	}
-
-	public function countposts($id)
-	{
-		$this->db->select('*');
-		$this->db->from('posts');
-		$this->db->join('categories_detail', 'categories_detail.idpost = posts.idpost', 'inner');
-		$this->db->join('categories', 'categories.idcategory = categories_detail.idcategory', 'inner');
-		$this->db->where('categories.idcategory', $id);
-		return $this->db->get()->num_rows();
-	}
+	
 }

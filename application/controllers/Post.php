@@ -6,6 +6,7 @@ class Post extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('posts');
+		$this->load->model('datamedia');
 	}
 
 	public function index()
@@ -28,6 +29,7 @@ class Post extends CI_Controller {
 
 	public function add()
 	{
+		$data['media'] = $this->datamedia->list_image();
 		$data['title']="Tambah Pos";
 		$data['file']="posts/addpost";
 		$data['categories'] = $this->posts->getallcategories('categories');
